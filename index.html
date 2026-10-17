@@ -1,170 +1,112 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Xinyuan Shi - MBZUAI</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-    </style>
-  </head>
-<body class="w3-light-grey">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fafaf7">
+  <meta name="description" content="Xinyuan Shi — portrait photography in Abu Dhabi. Contact for photography enquiries and exhibition or event opportunities.">
+  <title>Xinyuan Shi — Photography</title>
+  <link rel="icon" href="portfolio-assets/monogram.svg" type="image/svg+xml">
+  <link rel="preload" href="portfolio-assets/work-sans.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="portfolio.css">
+  <link rel="stylesheet" href="services.css">
+  <script src="gallery-data.js" defer></script>
+  <script src="locales.js" defer></script>
+  <script src="site.js" defer></script>
+  <script src="portfolio.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
-
-  <!-- The Grid -->
-  <div class="w3-row-padding">
-  
-    <!-- Left Column -->
-    <div class="w3-third">
-    
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-          <img src="images/photo.jpg" style="width:100%" alt="profile photo">
-          <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2>Xinyuan Shi</h2>
-          </div>
-        </div>
-        <div class="w3-container">
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>undergraduate student</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Tianjin China</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>shixinyuan20040121@gmail.com</p>
-          <hr>
-
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-          <p>python</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
-          </div>
-          <p>pytorch</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">
-              <div class="w3-center w3-text-white">80%</div>
-            </div>
-          </div>
-          <p>linux</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">80%</div>
-          </div>
-          <p>git</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">70%</div>
-          </div>
-          <br>
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-          <p>Chinese</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
-          </div>
-          <p>English</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:70%"></div>
-          </div>
-          <br>
-        </div>
-      </div><br>
-
-    <!-- End Left Column -->
+  <header class="mobile-header">
+    <a class="mobile-brand" href="#work">XINYUAN SHI<span>.</span></a>
+    <div class="mobile-actions">
+      <a href="#contact"><span data-i18n="navigation.contact">Contact</span> <span aria-hidden="true">↗</span></a>
+      <button class="language-toggle mobile-language" type="button" data-language-toggle aria-label="Switch to Chinese" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span data-language-label lang="zh-CN">中文</span></button>
+      <button class="menu-toggle" type="button" aria-controls="site-sidebar" aria-expanded="false" aria-label="Open navigation">
+        <span></span><span></span>
+      </button>
     </div>
+  </header>
+  <button class="menu-backdrop" type="button" aria-label="Close navigation" data-i18n-aria-label="navigation.close" hidden></button>
 
-    <!-- Right Column -->
-    <div class="w3-twothird">
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="	fa fa-coffee fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Self Introduction</h2>
-        <div class="w3-container">
-          <p>I'm a final-year undergraduate student at Tianjin University of Commerce, focusing on research in computer vision and large-scale multimodal models.</p>
-          <p>From Sep 2023 to May 2024, I was a research intern at <a href="https://en.megvii.com/">Megvii Research</a>, supervised by <a href="https://scholar.google.com/citations?user=ggDkVlQAAAAJ&hl=zh-CN">Yuyang Liu</a></p>
-          <p>From Apr 2025 to Sep 2025, I was a self-funded visiting student of Mohamed Bin Zayed University of Artificial Intelligence, working with researcher Meng Cao and Professor <a href="https://scholar.google.com/citations?user=voxznZAAAAAJ&hl=zh-CN">Xiaodan Liang</a></p>
-          <hr>
+  <aside class="sidebar" id="site-sidebar" aria-label="Main navigation" data-i18n-aria-label="navigation.main">
+    <a class="wordmark" href="#work" aria-label="Xinyuan Shi Photography, home" data-i18n-aria-label="navigation.home">XINYUAN<br>SHI<span>.</span></a>
+    <p class="sidebar-description"><span data-i18n="brand.photography">PHOTOGRAPHY</span><br><span data-i18n="brand.tagline">People &amp; place.</span></p>
+    <button class="language-toggle desktop-language" type="button" data-language-toggle aria-label="Switch to Chinese" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span data-language-label lang="zh-CN">中文</span></button>
+    <nav class="main-nav" aria-label="Portfolio" data-i18n-aria-label="navigation.portfolio">
+      <a class="nav-link active" href="#work" aria-current="location"><span class="nav-index">01</span> <span data-i18n="navigation.work">Work</span> <span class="nav-arrow" aria-hidden="true">↗</span></a>
+      <a class="nav-link" href="services.html" data-language-link><span class="nav-index">02</span> <span data-i18n="navigation.services">Services</span> <span class="nav-arrow" aria-hidden="true">↗</span></a>
+      <a class="nav-link" href="#about"><span class="nav-index">03</span> <span data-i18n="navigation.about">About</span> <span class="nav-arrow" aria-hidden="true">↗</span></a>
+      <a class="nav-link" href="#contact"><span class="nav-index">04</span> <span data-i18n="navigation.contact">Contact</span> <span class="nav-arrow" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <p class="sidebar-location"><span class="small-dot" aria-hidden="true"></span> <span data-i18n="brand.location">Portraits in Abu Dhabi</span></p>
+      <div class="sidebar-contact">
+        <a href="mailto:shixinyuan20040121@gmail.com"><span data-i18n="contact.emailShort">Email</span> <span aria-hidden="true">↗</span></a>
+        <a href="https://wa.me/971509856429" target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="sidebar-copyright">© <span data-year>2026</span> Xinyuan Shi</p>
+    </div>
+  </aside>
+
+  <main id="main" class="page">
+    <section id="work" class="work-section" aria-labelledby="work-title">
+      <div class="work-header section-padding">
+        <div class="work-topline">
+          <p class="eyebrow" data-i18n="work.eyebrow">PORTRAIT PHOTOGRAPHY · ABU DHABI</p>
+          <span class="preview-label"><span aria-hidden="true"></span> <span data-i18n="work.preview">SELECTED WORK / 2026</span></span>
+        </div>
+        <div class="work-heading">
+          <div><h1 id="work-title"><span data-i18n="work.title">Portraits, in place</span><span class="accent" data-i18n="punctuation.period">.</span></h1><p class="work-intro" data-i18n="work.intro">People, light and a sense of place.</p></div>
+          <a class="text-link header-contact" href="#contact"><span data-i18n="work.contact">Get in touch</span> <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="	fa fa-paste fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Research Experience</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Research Intern / Megvii Research(supervised by <a href="https://scholar.google.com/citations?user=ggDkVlQAAAAJ&hl=zh-CN">Yuyang Liu</a>)</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2023 - May 2024</h6>
-          <p>Engineered advanced AI algorithms and advanced applications at Megvii Research.</p>
-          <p>Contributed to building the AI Service (AIS) infrastructure, enabling mass algorithm deployment via a zero-code, automated productivity platform.</p>
-          <hr>
+      <div class="gallery-toolbar section-padding">
+        <div class="filters" role="group" aria-label="Filter photographs" data-i18n-aria-label="gallery.filters">
+          <button class="filter-button active" type="button" data-filter="all" aria-pressed="true"><span data-i18n="gallery.all">Selected work</span> <sup data-count="all">28</sup></button>
+          <button class="filter-button" type="button" data-filter="landmarks" aria-pressed="false"><span data-i18n="category.landmarks">Landmarks</span> <sup data-count="landmarks"></sup></button>
+          <button class="filter-button" type="button" data-filter="art" aria-pressed="false"><span data-i18n="category.art">Art &amp; architecture</span> <sup data-count="art"></sup></button>
+          <button class="filter-button" type="button" data-filter="water" aria-pressed="false"><span data-i18n="category.water">By the water</span> <sup data-count="water"></sup></button>
         </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Research Assistant / AI Lab, Research Center for Industries of the Future, Westlake University(supervised by <a href="https://scholar.google.com/citations?user=qmTjdwIAAAAJ&hl=zh-CN">Dr. Yufei Huang</a>)</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2024 - Sep 2024</h6>
-          <p>Introduced the flexible docking task to jointly predict ligand and pocket sidechain conformations for more realistic induced-fit modeling.</p>
-          <p>Developed a diffusion-bridge generative model over geometric manifolds with energy-to-geometry mapping inspired by Newton–Euler mechanics.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Visiting Student / Mohamed bin Zayed University of Artificial Intelligence. (supervised by Postdoc Meng Cao)</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Apr 2025 - Sep 2025</h6>
-          <p>Proposed COLT, a continual tool-usage framework for video LLMs that leverages a learnable tool codebook to dynamically acquire new tools without catastrophic forgetting.</p>
-          <p>Constructed VideoToolBench, the first video-centric tool-use instruction-tuning dataset, enabling robust evaluation of tool invocation and lifelong learning.</p>
-          <p>Achieved state-of-the-art results on MSRVTT-QA (+8.2% accuracy over prior SOTA) and substantial continual learning gains on VideoToolBench.</p>
-          <hr>
-        </div>
-      </div>     
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16">
-          <i class="fa fa-tree fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
-          Awards
-        </h2>
-        <div class="w3-container">
-          <p><b>* 1st Prize Academic Scholarship, Tianjin University Of Commerce</b></p>
-          <p><b>* M Award in Mathematical Contest in Modeling</b></p>
-          <p><b>* First Prize in Tianjin Region, China Undergraduate Mathematical Contest in Modeling</b></p>
-        </div>
+        <span class="gallery-instruction"><span data-i18n="gallery.instruction">Click a frame to explore</span> <span aria-hidden="true">↗</span></span>
       </div>
+      <p class="sr-only" id="gallery-status" role="status" aria-live="polite"></p>
+      <div id="photo-gallery" class="photo-gallery" aria-label="Portrait photography gallery" data-i18n-aria-label="gallery.label"></div>
+      <noscript><p class="section-padding">Enable JavaScript to explore the full gallery. You can still contact me using the links below.<br><span lang="zh-CN">开启 JavaScript 后可浏览完整作品集；也欢迎通过下方联系方式直接与我联系。</span></p></noscript>
+      <div class="gallery-actions section-padding"><button class="archive-toggle" type="button" aria-expanded="false"><span data-i18n="gallery.showAll">View the full collection</span> <span class="archive-count">93</span><span aria-hidden="true">↗</span></button></div>
+    </section>
 
-<!-- Social Influence（独立卡片） -->
-<div class="w3-container w3-card w3-white w3-margin-bottom">
-  <h2 class="w3-text-grey w3-padding-16">
-    <i class="fa fa-users fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
-    Social Influence
-  </h2>
+    <section id="about" class="about-section section-padding section-space" aria-labelledby="about-title">
+      <figure class="about-portrait">
+        <img src="portfolio-assets/photographer-xinyuan-shi.jpg" width="1200" height="1800" alt="Xinyuan Shi holding a camera in warm evening light" data-i18n-alt="about.portraitAlt" loading="lazy" decoding="async">
+        <figcaption><span>Xinyuan Shi</span><span data-i18n="about.portraitCaption">PHOTOGRAPHER / ABU DHABI</span></figcaption>
+      </figure>
+      <div class="about-copy"><p class="eyebrow" data-i18n="about.eyebrow">03 / ABOUT</p><h2 id="about-title"><span data-i18n="about.greeting">Hello,</span><br><span data-i18n="about.name">I’m Xinyuan Shi</span><span class="accent" data-i18n="punctuation.period">.</span></h2>
+        <p data-i18n="about.description">I photograph people at Abu Dhabi’s landmarks, bringing portraits and their surroundings into the same frame.</p>
+        <p data-i18n="about.opportunities">I’m interested in exhibition and event photography opportunities. For photography enquiries or to discuss an assignment, get in touch.</p>
+        <div class="about-actions"><a class="text-link" href="#contact"><span data-i18n="about.contact">Let’s talk photography</span> <span aria-hidden="true">↗</span></a><a class="text-link" href="services.html" data-language-link><span data-i18n="navigation.rates">Services &amp; rates</span> <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
 
-  <div class="w3-container">
-    <p>
-      I have built a strong presence as a dance content creator on TikTok and Kuaishou, with around
-      <b>200,000 followers</b> and a cumulative <b>20 million+</b> views. My engaging and creative dance videos have
-      attracted a wide audience and established me as a recognized dance influencer on both platforms.
-    </p>
+    <section id="contact" class="contact-section section-padding section-space" aria-labelledby="contact-title">
+      <div class="contact-intro"><p class="eyebrow" data-i18n="contact.eyebrow">04 / CONTACT</p><h2 id="contact-title"><span data-i18n="contact.titleOne">Have a shoot</span><br><span data-i18n="contact.titleTwo">in mind</span><span class="accent" data-i18n="punctuation.question">?</span></h2><p><span data-i18n="contact.descriptionOne">For photography opportunities,</span><br><span data-i18n="contact.descriptionTwo">collaborations and enquiries.</span></p><a class="contact-cta" href="mailto:shixinyuan20040121@gmail.com"><span data-i18n="contact.hello">Say hello</span> <span aria-hidden="true">↗</span></a></div>
+      <div class="contact-list">
+        <div class="contact-row"><span class="contact-label" data-i18n="contact.email">EMAIL</span><a class="contact-value email-value" href="mailto:shixinyuan20040121@gmail.com">shixinyuan20040121@gmail.com <span aria-hidden="true">↗</span></a></div>
+        <div class="contact-row"><span class="contact-label">WHATSAPP</span><a class="contact-value" href="https://wa.me/971509856429" target="_blank" rel="noopener noreferrer">+971 50 985 6429 <span aria-hidden="true">↗</span></a></div>
+        <div class="contact-row"><span class="contact-label" data-i18n="contact.phone">PHONE</span><a class="contact-value" href="tel:+971509856429">+971 50 985 6429 <span aria-hidden="true">↗</span></a></div>
+        <div class="contact-row"><span class="contact-label" data-i18n="contact.wechat">WECHAT</span><div class="wechat-line"><span class="contact-value" id="wechat-id">luckycat2199</span><button class="copy-button" type="button" data-copy="luckycat2199" aria-label="Copy WeChat ID luckycat2199" data-i18n-aria-label="contact.copyLabel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1.5"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span data-i18n="contact.copy">Copy ID</span></button></div></div>
+      </div>
+    </section>
 
-    <!-- 视频区域 -->
-    <figure class="w3-margin-top">
-      <video
-        src="videos/dance.mp4"
-        controls
-        playsinline
-        preload="metadata"
-        class="w3-image"
-        style="max-width:100%;height:auto;border-radius:12px;display:block;"
-        poster="images/dance-poster.jpg"  <!-- 可选：若没有海报图，可删除这一行 -->
-      >
-        <!-- 更稳妥的多来源写法（如果你也有webm/ogv，可以取消注释） -->
-        <!-- <source src="videos/dance.webm" type="video/webm"> -->
-        <!-- <source src="videos/dance.ogv" type="video/ogg"> -->
-        您的浏览器不支持视频播放，请升级浏览器或下载视频查看。
-      </video>
-      <figcaption class="w3-small w3-text-grey w3-margin-top">Dance highlight — tap to play</figcaption>
-    </figure>
-  </div>
-</div>
+    <footer class="site-footer section-padding"><span>© <span data-year>2026</span> Xinyuan Shi · <span data-i18n="footer.photography">Photography</span></span><span><span data-i18n="footer.credit">Layout inspired by</span> <a href="https://uicookies.com/downloads/aside-free-html5-bootstrap-4-website-template-photography/" target="_blank" rel="noopener noreferrer">Aside</a></span><a href="#work"><span data-i18n="footer.top">Back to top</span> <span aria-hidden="true">↑</span></a></footer>
+  </main>
 
-
-    <!-- End Right Column -->
-    </div>
-    
-  <!-- End Grid -->
-  </div>
-  
-  <!-- End Page Container -->
-</div>
-
-
+  <dialog class="lightbox" id="lightbox" aria-label="Photograph viewer" data-i18n-aria-label="viewer.label" aria-labelledby="lightbox-title">
+    <div class="lightbox-top"><span class="lightbox-brand">XINYUAN SHI<span>.</span></span><span class="lightbox-sample" data-i18n="viewer.sample">PORTRAIT STORIES / ABU DHABI</span><div class="lightbox-actions"><button class="language-toggle lightbox-language" type="button" data-language-toggle aria-label="Switch to Chinese" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span data-language-label lang="zh-CN">中文</span></button><button class="icon-button lightbox-close" type="button" aria-label="Close photograph viewer" data-i18n-aria-label="viewer.close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div></div>
+    <div class="lightbox-stage"><button class="icon-button lightbox-prev" type="button" aria-label="Previous photograph" data-i18n-aria-label="viewer.previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7"/></svg></button><img id="lightbox-image" alt=""><button class="icon-button lightbox-next" type="button" aria-label="Next photograph" data-i18n-aria-label="viewer.next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7"/></svg></button></div>
+    <div class="lightbox-bottom"><div><h2 id="lightbox-title"></h2><p id="lightbox-category"></p></div><span id="lightbox-counter" aria-live="polite"></span><a href="mailto:shixinyuan20040121@gmail.com"><span data-i18n="viewer.enquire">Enquire</span> <span aria-hidden="true">↗</span></a></div>
+  </dialog>
+  <div id="copy-status" class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
-

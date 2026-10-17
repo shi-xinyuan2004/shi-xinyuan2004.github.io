@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Portfolio smoke check</title>
+<style>iframe{position:absolute;left:-10000px;width:1440px;height:800px}body{font:14px sans-serif}</style>
+<h1>Portfolio smoke check</h1><pre id="result">RUNNING</pre>
+<script>
+(async () => {
+  const checks = [];
+  const expect = (name, condition) => checks.push({name, pass: Boolean(condition)});
+  const uncropped = img => {
+    const style = img.ownerDocument.defaultView.getComputedStyle(img);
+    const bounds = img.getBoundingClientRect();
+    const width = img.naturalWidth || img.width;
+    const height = img.naturalHeight || img.height;
+    return style.objectFit !== 'cover' && bounds.width > 0 && Math.abs(bounds.width / bounds.height - width / height) < 0.02;
+  };
+  const load = source => new Promise((resolve, reject) => {
+    const frame = document.createElement('iframe');
+    frame.src = source;
+    frame.onload = () => resolve(frame);
+    frame.onerror = reject;
+    document.body.append(frame);
+  });
+  try {
+    const home = await load('../index.html?lang=en');
+    const d = home.contentDocument;
+    expect('default English', d.documentElement.lang === 'en');
+    expect('28 selected photographs', d.querySelectorAll('.photo-button').length === 28);
+    expect('selected work is the first photo section', !d.querySelector('.hero-feature, [data-open-photo]') && d.querySelector('.gallery-toolbar').getBoundingClientRect().top < 260);
+    expect('first row leads with the chosen direct portraits', [...d.querySelectorAll('.photo-row:first-child .photo-button')].map(button => button.dataset.photoId).join(',') === 'frame-104,frame-003,frame-039');
+    expect('first six selected works prioritize frontal portraits', [...d.querySelectorAll('.photo-button')].slice(0, 6).map(button => button.dataset.photoId).join(',') === 'frame-104,frame-003,frame-039,frame-062,frame-097,frame-083');
+    const galleryRows = [...d.querySelectorAll('.photo-row')];
+    expect('gallery rows align without masonry gaps', galleryRows.every(row => {
+      const frames = [...row.querySelectorAll('.photo-button')].map(button => button.getBoundingClientRect());
+      return frames.length >= 2 && frames.every(frame => Math.abs(frame.top - frames[0].top) < 2 && Math.abs(frame.bottom - frames[0].bottom) < 2);
+    }));
+    expect('all selected thumbnails have alt text', [...d.querySelectorAll('.photo-button img')].every(img => img.alt && img.src.includes('/thumb/')));
+    expect('Series section and links removed', !d.querySelector('#series, [href="#series"], [data-series]'));
+    expect('home navigation has four numbered entries', [...d.querySelectorAll('.main-nav .nav-index')].map(node => node.textContent.trim()).join(',') === '01,02,03,04');
+    expect('Other stories removed', !d.querySelector('[data-filter="stories"]') && !d.body.textContent.includes('Other stories'));
+    expect('gallery uses natural photo proportions', [...d.querySelectorAll('.photo-button img')].every(uncropped));
+    const aboutPortrait = d.querySelector('.about-portrait img');
+    aboutPortrait.loading = 'eager';
+    await aboutPortrait.decode().catch(() => {});
+    expect('photographer portrait loads in About without crop', aboutPortrait.naturalWidth === 1200 && aboutPortrait.naturalHeight === 1800 && uncropped(aboutPortrait) && aboutPortrait.alt.includes('Xinyuan Shi'));
+    d.querySelector('[data-filter="water"]').click();
+    expect('water filter opens its selected photographs', d.querySelector('[data-filter="water"]').getAttribute('aria-pressed') === 'true' && d.querySelectorAll('.photo-button').length === 9);
+    d.querySelector('[data-filter="all"]').click();
+    d.querySelector('.photo-button').click();
+    expect('first selected photograph opens viewer', d.querySelector('#lightbox').open && d.querySelector('#lightbox-image').src.includes('/display/104.jpg'));
+    d.querySelector('.lightbox-close').click();
+    d.querySelector('.archive-toggle').click();
+    expect('all 93 photographs open', d.querySelectorAll('.photo-button').length === 93);
+    expect('archive switch expanded', d.querySelector('.archive-toggle').getAttribute('aria-expanded') === 'true');
+    const uprightIds = ['083', '084', '085', '086', '087', '088', '109'];
+    const uprightThumbs = await Promise.all(uprightIds.map(id => new Promise(resolve => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => resolve(null);
+      img.src = `../portfolio-assets/work/thumb/${id}.jpg`;
+    })));
+    expect('EXIF-rotated portraits are upright', uprightThumbs.every(img => img && img.naturalHeight > img.naturalWidth));
+    const canvas = document.createElement('canvas');
+    canvas.width = canvas.height = 20;
+    const context = canvas.getContext('2d');
+    context.drawImage(uprightThumbs[4], 0, 0, 20, 20);
+    const sample = context.getImageData(0, 0, 20, 20).data;
+    expect('sunset portrait is visible rather than black', [...sample].some((value, index) => index % 4 !== 3 && value > 80));
+    d.querySelector('[data-filter="art"]').click();
+    expect('art filter shows 26 photographs', d.querySelectorAll('.photo-button').length === 26);
+    d.querySelector('.desktop-language').click();
+    expect('Chinese switch works', d.documentElement.lang === 'zh-CN' && d.querySelector('[data-filter="art"] [data-i18n]').textContent === '艺术与建筑');
+    expect('photographer portrait alt switches to Chinese', aboutPortrait.alt.includes('摄影师'));
+    expect('Chinese About and Contact numbering updated', d.querySelector('[data-i18n="about.eyebrow"]').textContent === '03 / 关于我' && d.querySelector('[data-i18n="contact.eyebrow"]').textContent === '04 / 联系我');
+    d.querySelector('.photo-button').click();
+    expect('viewer opens display image', d.querySelector('#lightbox').open && d.querySelector('#lightbox-image').src.includes('/display/'));
+    d.querySelector('.lightbox-close').click();
+    expect('viewer closes', !d.querySelector('#lightbox').open);
+    d.querySelector('.archive-toggle').click();
+    expect('selected art view restores', d.querySelectorAll('.photo-button').length === 9);
+    home.remove();
+
+    const service = await load('../services.html?lang=en');
+    const s = service.contentDocument;
+    expect('services navigation has four numbered entries', [...s.querySelectorAll('.main-nav .nav-index')].map(node => node.textContent.trim()).join(',') === '01,02,03,04' && !s.querySelector('[href*="#series"]'));
+    expect('services image loaded', s.querySelector('.services-hero-image img').complete && s.querySelector('.services-hero-image img').naturalWidth > 0);
+    expect('services portrait uses natural proportions', uncropped(s.querySelector('.services-hero-image img')));
+    expect('hourly iPhone minimum AED 398', s.querySelector('#quote-total').textContent.includes('398'));
+    s.querySelector('[data-choose-equipment="camera"]').click();
+    expect('camera minimum AED 478', s.querySelector('#quote-total').textContent.includes('478'));
+    s.querySelector('#session-party').value = 'group';
+    s.querySelector('#session-party').dispatchEvent(new Event('change', {bubbles:true}));
+    expect('whole-group supplement AED 50 per hour', s.querySelector('#quote-total').textContent.includes('578'));
+    s.querySelector('[data-choose-day]').click();
+    expect('group full day AED 1990', s.querySelector('#quote-total').textContent.includes('1,990') && s.querySelector('[data-price="dayGroup"]').textContent === '1,990');
+    s.querySelector('#session-party').value = 'solo';
+    s.querySelector('#session-party').dispatchEvent(new Event('change', {bubbles:true}));
+    expect('solo full day AED 1590', s.querySelector('#quote-total').textContent.includes('1,590') && s.querySelector('[data-price="daySolo"]').textContent === '1,590');
+    s.querySelector('.desktop-language').click();
+    expect('services Chinese switch works', s.documentElement.lang === 'zh-CN');
+    service.remove();
+  } catch (error) {
+    checks.push({name: String(error), pass: false});
+  }
+  document.getElementById('result').textContent = JSON.stringify({passed: checks.filter(c => c.pass).length, total: checks.length, checks});
+})();
+</script>
+</html>

@@ -1,0 +1,176 @@
+.about-actions{display:flex;flex-wrap:wrap;gap:22px;margin-top:29px;color:#3f503c}
+.services-hero{display:grid;grid-template-columns:1.18fr .82fr;align-items:center;gap:48px;padding-top:48px;padding-bottom:47px}
+.services-hero h1{font-size:clamp(39px,4.5vw,61px);line-height:1.08;margin-top:26px;letter-spacing:-2.8px}
+.services-hero-copy{min-width:0;padding:12px 0}
+.services-intro{max-width:410px;margin-top:24px;font-size:13px;line-height:1.9;color:#7e8878}
+.services-hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:25px;margin-top:28px}
+.services-hero-actions .contact-cta{margin-top:0;gap:28px}
+.services-hero-actions .text-link{font-size:10px;gap:9px}
+.services-hero-facts{display:flex;align-items:center;gap:26px;margin-top:41px}
+.services-hero-facts>div:first-child{padding-right:25px;border-right:1px solid var(--line)}
+.services-hero-facts>div:first-child>p{white-space:nowrap;line-height:1.5}
+.services-hero-facts b{font-size:28px;font-weight:450;letter-spacing:-1px}
+.fact-currency{font-size:10px;color:#718269}
+.services-hero-facts small{font-size:9px;color:#8e9785}
+.services-hero-facts>div:last-child{display:grid;gap:7px;font-size:10px;color:#788570}
+.services-hero-image{min-width:0;position:relative;align-self:start;background:#e8ebe1;overflow:hidden}
+.services-hero-image>img{display:block;width:100%;height:auto}
+.services-hero-image>figcaption{position:absolute;inset:auto 0 0;display:flex;justify-content:space-between;gap:10px;padding:25px 17px 15px;background:linear-gradient(transparent,#10201686);color:#fff;font-size:8px;letter-spacing:.3px}
+.service-types{padding-top:27px;padding-bottom:39px;border-top:1px solid var(--line)}
+.service-types-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:31px;margin-top:25px}
+.service-type-number{font-size:9px;letter-spacing:1px;color:#8e9b83}
+.service-types h2{font-size:17px;font-weight:450;letter-spacing:-.5px;line-height:1.4;margin-top:11px}
+.service-types article>p{font-size:11px;color:#8a9383;line-height:1.85;margin-top:11px}
+.rates-section .section-description,.plan-section .section-description{max-width:310px}
+.rate-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.rate-card{padding:27px 23px 22px;border:1px solid var(--line);background:#fdfefa;display:flex;flex-direction:column;min-width:0}
+.rate-index{font-size:8px;letter-spacing:1.1px;color:#839178;display:block;margin-bottom:14px}
+.rate-card h3{font-size:17px;letter-spacing:-.4px;font-weight:500;line-height:1.4}
+.rate-description{font-size:10px;color:#8e9785;line-height:1.8;min-height:37px;margin-top:8px}
+.rate-price{display:flex;align-items:baseline;gap:6px;margin-top:23px;white-space:nowrap}
+.rate-price>span{font-size:10px;color:#7d8c72}
+.rate-price strong{font-size:39px;font-weight:400;line-height:1.2;letter-spacing:-1.8px}
+.rate-price small{font-size:9px;color:#8f9985}
+.rate-minimum{font-size:9px;color:#8c967e;margin-top:7px}
+.rate-card ul{padding:20px 0 0;margin:20px 0 25px;border-top:1px solid #e2e7da;list-style:none;font-size:10px;color:#77866b;line-height:1.8;display:grid;gap:11px}
+.rate-card li{padding-left:14px;position:relative}
+.rate-card li::before{content:'✓';position:absolute;left:0;top:0;color:#66825a;font-size:9px}
+.rate-choose{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;text-align:left;border:1px solid #dce4d2;background:transparent;padding:11px 12px;font-size:10px;color:#4f6642;transition:background .18s}
+.rate-choose:hover{background:#e7eedf}
+.rate-choose>span[aria-hidden]{font-size:16px;line-height:1}
+.rate-day{background:#eaf0e3;border-color:#d1ddc5}
+.rate-day>.rate-index{color:#60814c}
+.day-price-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;padding-bottom:13px}
+.day-price-pair>div>span{font-size:9px;color:#7c8a6d}
+.day-price-pair p{margin-top:8px;font-size:8px;white-space:nowrap;color:#7b8d6a}
+.day-price-pair strong{display:block;font-size:30px;letter-spacing:-1px;font-weight:450;line-height:1.3;color:var(--ink)}
+.rate-day ul{margin-top:17px}
+.rate-day .rate-choose{background:#263c21;color:#f6f8f1;border-color:#263c21}
+.rate-day .rate-choose:hover{background:#3e5932}
+.rate-notes{display:grid;gap:9px;margin-top:24px;color:#849178;font-size:10px;line-height:1.8}
+.rate-notes>p{display:flex;align-items:baseline;gap:9px}
+.rate-notes .small-dot{position:relative;top:-1px;width:4px;height:4px}
+.included-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin-top:42px;padding-top:30px;border-top:1px solid var(--line)}
+.included-grid article>span{color:#6d885e;font-size:18px}
+.included-grid h3{font-size:13px;font-weight:500;margin-top:10px;line-height:1.5}
+.included-grid p{font-size:10px;color:#8a947e;line-height:1.9;margin-top:9px}
+.plan-section{background:#f2f4ed}
+.session-planner{display:grid;grid-template-columns:1.15fr 1fr;gap:38px}
+.session-options{padding:9px 0;min-width:0}
+.session-mode{display:inline-flex;gap:4px;padding:4px;background:#e5eadd;border:1px solid #dce3d2}
+.session-mode button{background:transparent;color:#879479;font-size:11px;padding:10px 24px;min-height:38px}
+.session-mode button.active{background:#fdfefa;color:#425c33;box-shadow:0 1px 3px #2334160b}
+.session-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.session-fields label{display:grid;gap:11px;min-width:0;color:#798a6c;font-size:10px}
+.session-fields select{appearance:auto;border:1px solid #d7dfcc;background:#fafbf6;color:#4f6143;border-radius:0;padding:12px 9px;font:11px "Work Sans","PingFang SC",sans-serif;min-width:0;width:100%;min-height:43px}
+.session-fields select:disabled{color:#849477;background:#e9eee1;opacity:1}
+.session-fields select:focus-visible,.session-duration input:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.session-duration{margin-top:31px}
+.session-duration>div{display:flex;justify-content:space-between;gap:15px;align-items:center;font-size:10px;color:#7e8c72}
+.session-duration output{font-size:18px;font-weight:450;color:#3c5030;letter-spacing:-.5px}
+.session-duration input{width:100%;accent-color:#607e4d;margin:20px 0 12px;cursor:pointer;min-height:20px}
+.session-duration input:disabled{opacity:.5;cursor:default}
+.session-duration p,.session-expenses{font-size:9px;color:#91a083;line-height:1.85}
+.session-expenses{margin-top:30px;padding-top:20px;border-top:1px solid #dfe5d6;max-width:370px}
+.session-quote{min-width:0;background:#fcfdf9;border:1px solid #dce4d2;padding:27px 28px 24px}
+.quote-total{display:block;font-size:37px;letter-spacing:-1.5px;line-height:1.3;font-weight:400;margin-top:19px}
+.quote-breakdown{font-size:10px;color:#7c8b6e;margin:24px 0}
+.quote-breakdown>div{display:flex;justify-content:space-between;gap:15px;margin-top:11px}
+.quote-breakdown dt{min-width:0}
+.quote-breakdown dd{margin:0;color:#4e6540;white-space:nowrap}
+.quote-breakdown .quote-payment{margin-top:21px;padding-top:18px;border-top:1px solid #e0e6d6}
+.quote-enquiry{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px 15px;background:#253c1f;color:#f5f8f0;font-size:11px;transition:background .18s}
+.quote-enquiry:hover{background:#3f5d33}
+.quote-enquiry>span[aria-hidden]{font-size:17px}
+.quote-booking-note{font-size:9px;color:#929d85;line-height:1.8;margin-top:14px}
+.booking-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px;margin-top:31px}
+.booking-steps article{border-top:1px solid var(--line);padding-top:20px}
+.booking-steps article>span{font-size:26px;color:#b4bda8;font-weight:350;letter-spacing:-1px}
+.booking-steps h3{font-size:14px;font-weight:500;margin-top:19px;line-height:1.5}
+.booking-steps p{font-size:11px;line-height:1.9;color:#8b957f;margin-top:12px}
+.terms-section{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px}
+.terms-intro{font-size:11px;line-height:1.8;color:#8b957f;margin-top:20px;max-width:270px}
+.service-faq{border-top:1px solid var(--line)}
+.service-faq details{border-bottom:1px solid var(--line)}
+.service-faq summary{position:relative;list-style:none;padding:20px 27px 20px 0;font-size:12px;cursor:pointer;line-height:1.7}
+.service-faq summary::-webkit-details-marker{display:none}
+.service-faq summary::after{content:'+';position:absolute;right:3px;top:19px;color:#839772;font-size:18px;line-height:1.2}
+.service-faq details[open]>summary::after{content:'−'}
+.service-faq summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.service-faq p{font-size:11px;line-height:1.95;color:#8b957f;padding:0 15px 21px 0;max-width:560px}
+.business-enquiry{display:flex;align-items:center;justify-content:space-between;gap:38px;padding-top:29px;padding-bottom:29px;background:#e8ecdf;border-top:1px solid #dce3d1}
+.business-enquiry h2{font-size:18px;letter-spacing:-.3px;line-height:1.5;margin:0}
+.business-enquiry p{font-size:11px;line-height:1.8;color:#829171;margin-top:9px;max-width:540px}
+.business-enquiry .text-link{flex-shrink:0;white-space:nowrap}
+@media(max-width:1250px){.services-hero{gap:29px}.services-hero h1{font-size:46px}.services-hero-actions{gap:20px}.rate-grid{gap:12px}.rate-card{padding:24px 17px 18px}.rate-card h3{font-size:15px}.rate-price strong{font-size:34px}.day-price-pair{gap:8px}.day-price-pair strong{font-size:26px}.rate-choose{font-size:9px;padding:10px}.session-planner{gap:25px}.session-quote{padding:24px 22px}.session-fields{grid-template-columns:1fr;gap:18px}.quote-total{font-size:32px}.service-types-grid{gap:24px}.service-types h2{font-size:16px}.terms-section{gap:30px}}
+@media(max-width:1000px){.services-hero{grid-template-columns:1.2fr .8fr;gap:24px}.services-hero h1{font-size:40px}.services-intro{font-size:12px}.services-hero-facts{gap:15px}.services-hero-facts>div:first-child{padding-right:15px}.services-hero-facts>div:last-child{font-size:9px}.rate-grid{grid-template-columns:1fr 1fr}.rate-day{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;column-gap:30px}.rate-day>.rate-index{grid-column:1/-1}.rate-day h3{grid-column:1}.rate-day .day-price-pair{grid-column:1;grid-row:3}.rate-day ul{grid-column:2;grid-row:2/4;margin:0;border:0;padding:0}.rate-day .rate-choose{grid-column:1/-1;margin-top:25px}.rate-day .day-price-pair strong{font-size:30px}.session-planner{grid-template-columns:1fr}.session-fields{grid-template-columns:1fr 1fr}.session-options{padding-bottom:10px}.session-quote{max-width:none}.service-types-grid{gap:20px}.included-grid{gap:22px}.terms-section{grid-template-columns:1fr;gap:27px}.business-enquiry{display:block}.business-enquiry .text-link{margin-top:18px}}
+@media(max-width:760px){
+  .services-hero{grid-template-columns:1fr;gap:30px;padding-top:31px;padding-bottom:30px}
+  .services-hero-copy{padding:0}
+  .services-hero h1{font-size:47px;letter-spacing:-2px;margin-top:24px}
+  .services-intro{font-size:12px;max-width:390px;margin-top:21px}
+  .services-hero-actions{margin-top:25px;gap:22px}
+  .services-hero-actions .contact-cta{font-size:10px;padding:12px 14px;gap:15px}
+  .services-hero-actions .text-link{font-size:9px;gap:6px}
+  .services-hero-facts{margin-top:30px;gap:24px}
+  .services-hero-facts>div:first-child{padding-right:24px}
+  .services-hero-facts>div:last-child{font-size:9px}
+  .services-hero-image>figcaption{font-size:8px}
+  .service-types{padding-top:25px;padding-bottom:30px}
+  .service-types-grid{grid-template-columns:1fr;gap:22px;margin-top:24px}
+  .service-types-grid article{display:grid;grid-template-columns:32px 1fr;gap:0 15px}
+  .service-type-number{grid-column:1;grid-row:1;padding-top:5px}
+  .service-types h2{grid-column:2;margin-top:0;font-size:17px}
+  .service-types article>p{grid-column:2;font-size:11px;margin-top:8px}
+  .rate-grid{grid-template-columns:1fr;gap:16px}
+  .rate-card{padding:25px 23px 22px}
+  .rate-card h3{font-size:19px}
+  .rate-description{font-size:11px;min-height:0}
+  .rate-price{margin-top:23px}
+  .rate-price strong{font-size:44px}
+  .rate-card ul{font-size:11px}
+  .rate-choose{font-size:11px;padding:12px 13px;min-height:44px}
+  .rate-day{display:flex;grid-column:auto}
+  .day-price-pair{margin-top:23px}
+  .rate-day .day-price-pair strong{font-size:36px}
+  .rate-day ul{margin-top:18px;padding-top:20px;border-top:1px solid #d5dfca}
+  .rate-day .rate-choose{margin-top:0}
+  .rate-notes{font-size:10px;gap:12px;margin-top:23px}
+  .included-grid{grid-template-columns:1fr;gap:24px;margin-top:33px;padding-top:25px}
+  .included-grid h3{margin-top:4px;font-size:14px}
+  .included-grid p{font-size:11px;margin-top:7px}
+  .included-grid article>span{float:right}
+  .session-planner{gap:23px}
+  .session-mode{width:100%}
+  .session-mode button{flex:1;min-height:42px;font-size:12px}
+  .session-fields{grid-template-columns:1fr;margin-top:27px;gap:20px}
+  .session-fields label{font-size:11px}
+  .session-fields select{font-size:12px;padding:14px 11px;min-height:47px}
+  .session-duration{margin-top:28px}
+  .session-duration>div{font-size:11px}
+  .session-duration p,.session-expenses{font-size:10px}
+  .session-expenses{margin-top:23px}
+  .session-quote{padding:25px 23px 22px}
+  .quote-total{font-size:36px;margin-top:17px}
+  .quote-breakdown{font-size:11px;margin:24px 0}
+  .quote-enquiry{font-size:12px;min-height:47px}
+  .quote-booking-note{font-size:10px;margin-top:15px}
+  .booking-steps{grid-template-columns:1fr;gap:27px;margin-top:27px}
+  .booking-steps article{display:grid;grid-template-columns:36px 1fr;gap:0 16px;padding-top:20px}
+  .booking-steps article>span{grid-column:1;grid-row:1/3;font-size:25px}
+  .booking-steps h3{grid-column:2;margin-top:3px;font-size:15px}
+  .booking-steps p{grid-column:2;margin-top:11px;font-size:11px}
+  .terms-section{gap:25px}
+  .terms-intro{font-size:11px;margin-top:16px}
+  .service-faq summary{font-size:12px;padding-top:19px;padding-bottom:19px}
+  .service-faq p{font-size:11px}
+  .business-enquiry{padding-top:26px;padding-bottom:26px}
+  .business-enquiry h2{font-size:20px;line-height:1.5}
+  .business-enquiry p{font-size:11px}
+  .business-enquiry .text-link{font-size:11px;margin-top:20px}
+}
+html:lang(zh-CN) .services-hero h1{font-size:clamp(34px,4vw,53px);letter-spacing:0;line-height:1.35}
+html:lang(zh-CN) .services-intro{line-height:2}
+html:lang(zh-CN) .service-types h2{line-height:1.5}
+@media(max-width:760px){html:lang(zh-CN) .services-hero h1{font-size:39px}html:lang(zh-CN) .services-hero-actions{gap:18px}}
+@media(max-width:360px){.services-hero h1{font-size:43px}.services-hero-facts{gap:18px}.services-hero-facts>div:first-child{padding-right:18px}.services-hero-actions{gap:17px}.session-quote{padding:22px 18px}.quote-total{font-size:33px}.day-price-pair strong{font-size:32px}html:lang(zh-CN) .services-hero h1{font-size:35px}}
