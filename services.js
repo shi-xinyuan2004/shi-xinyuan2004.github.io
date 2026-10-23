@@ -45,7 +45,7 @@
     document.getElementById('quote-deposit').textContent = money(rates.deposit);
     document.getElementById('quote-balance').textContent = money(total-rates.deposit);
     const message = t('plan.message', {mode:modeName, equipment:equipmentName, party:partyName, hours:formatHours(hours), total:number(total)});
-    const enquiry = new URL('https://wa.me/971509856429');
+    const enquiry = new URL('https://wa.me/971559168531');
     enquiry.searchParams.set('text', message);
     document.getElementById('quote-enquiry').href = enquiry.href;
     document.querySelectorAll('[data-price]').forEach(element => {
