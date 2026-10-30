@@ -7,6 +7,7 @@
   const menuToggle = document.querySelector('.menu-toggle');
   const menuBackdrop = document.querySelector('.menu-backdrop');
   const toast = document.getElementById('copy-status');
+  const visitorCount = document.querySelector('[data-visitor-count]');
   const sections = [...document.querySelectorAll('main > section[id]')];
   const sectionLinks = [...document.querySelectorAll('.nav-link')].filter(link => link.getAttribute('href').startsWith('#'));
   let currentLanguage = 'en';
@@ -132,6 +133,16 @@
     button.focus({preventScroll: true});
   }));
   document.querySelectorAll('[data-year]').forEach(year => { year.textContent = String(new Date().getFullYear()); });
+  if (visitorCount && location.hostname === 'shi-xinyuan2004.github.io') {
+    const badge = document.createElement('img');
+    badge.src = 'https://hits.sh/shi-xinyuan2004.github.io/portfolio.svg?style=flat-square&label=views&labelColor=%23e5e7e1&color=%23257865';
+    badge.alt = 'Total page views';
+    badge.dataset.i18nAlt = 'footer.views';
+    badge.height = 20;
+    badge.addEventListener('error', () => { visitorCount.hidden = true; });
+    visitorCount.append(badge);
+    visitorCount.hidden = false;
+  }
   document.querySelectorAll('[data-language-toggle]').forEach(button => button.addEventListener('click', () => applyLanguage(currentLanguage === 'en' ? 'zh' : 'en', true)));
   window.PhotographySite = {t, getLanguage: () => currentLanguage};
   setMenu(false, false);

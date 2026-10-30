@@ -35,7 +35,7 @@
     }));
     expect('all selected thumbnails have alt text', [...d.querySelectorAll('.photo-button img')].every(img => img.alt && img.src.includes('/thumb/')));
     expect('Series section and links removed', !d.querySelector('#series, [href="#series"], [data-series]'));
-    expect('home navigation has four numbered entries', [...d.querySelectorAll('.main-nav .nav-index')].map(node => node.textContent.trim()).join(',') === '01,02,03,04');
+    expect('home navigation includes travel portraits', [...d.querySelectorAll('.main-nav .nav-index')].map(node => node.textContent.trim()).join(',') === '01,02,03,04,05' && !!d.querySelector('.main-nav [href*="travel-portraits.html"]'));
     expect('Other stories removed', !d.querySelector('[data-filter="stories"]') && !d.body.textContent.includes('Other stories'));
     expect('gallery uses natural photo proportions', [...d.querySelectorAll('.photo-button img')].every(uncropped));
     const aboutPortrait = d.querySelector('.about-portrait img');
@@ -70,7 +70,7 @@
     d.querySelector('.desktop-language').click();
     expect('Chinese switch works', d.documentElement.lang === 'zh-CN' && d.querySelector('[data-filter="art"] [data-i18n]').textContent === '艺术与建筑');
     expect('photographer portrait alt switches to Chinese', aboutPortrait.alt.includes('摄影师'));
-    expect('Chinese About and Contact numbering updated', d.querySelector('[data-i18n="about.eyebrow"]').textContent === '03 / 关于我' && d.querySelector('[data-i18n="contact.eyebrow"]').textContent === '04 / 联系我');
+    expect('Chinese About and Contact numbering updated', d.querySelector('[data-i18n="about.eyebrow"]').textContent === '04 / 关于我' && d.querySelector('[data-i18n="contact.eyebrow"]').textContent === '05 / 联系我');
     d.querySelector('.photo-button').click();
     expect('viewer opens display image', d.querySelector('#lightbox').open && d.querySelector('#lightbox-image').src.includes('/display/'));
     d.querySelector('.lightbox-close').click();
@@ -81,7 +81,7 @@
 
     const service = await load('../services.html?lang=en');
     const s = service.contentDocument;
-    expect('services navigation has four numbered entries', [...s.querySelectorAll('.main-nav .nav-index')].map(node => node.textContent.trim()).join(',') === '01,02,03,04' && !s.querySelector('[href*="#series"]'));
+    expect('services navigation has five numbered entries', [...s.querySelectorAll('.main-nav .nav-index')].map(node => node.textContent.trim()).join(',') === '01,02,03,04,05' && !s.querySelector('[href*="#series"]'));
     expect('services image loaded', s.querySelector('.services-hero-image img').complete && s.querySelector('.services-hero-image img').naturalWidth > 0);
     expect('services portrait uses natural proportions', uncropped(s.querySelector('.services-hero-image img')));
     expect('hourly iPhone minimum AED 398', s.querySelector('#quote-total').textContent.includes('398'));
@@ -98,6 +98,24 @@
     s.querySelector('.desktop-language').click();
     expect('services Chinese switch works', s.documentElement.lang === 'zh-CN');
     service.remove();
+
+    const travel = await load('../travel-portraits.html?lang=en');
+    const p = travel.contentDocument;
+    expect('travel page defaults to English and shows AED 300 hourly', p.documentElement.lang === 'en' && p.querySelector('.travel-rate strong').textContent.includes('300'));
+    await Promise.all([...p.querySelectorAll('.travel-photo-grid img')].map(async img => { img.loading = 'eager'; await img.decode().catch(() => {}); }));
+    expect('travel portfolio images load without cropping', [...p.querySelectorAll('.travel-photo-grid img')].every(img => img.complete && img.naturalWidth > 0 && p.defaultView.getComputedStyle(img).objectFit === 'contain'));
+    p.querySelector('#travel-date').value = '2026-11-15';
+    p.querySelector('#travel-date').dispatchEvent(new Event('input', {bubbles:true}));
+    p.querySelector('#travel-hours').value = '3';
+    p.querySelector('#travel-hours').dispatchEvent(new Event('change', {bubbles:true}));
+    p.querySelector('#travel-location').value = 'Corniche';
+    p.querySelector('#travel-location').dispatchEvent(new Event('input', {bubbles:true}));
+    const englishMessage = new URL(p.querySelector('#travel-whatsapp').href).searchParams.get('text');
+    expect('travel enquiry includes date, place and AED 900 estimate', p.querySelector('#travel-estimate').textContent.includes('900') && englishMessage.includes('2026-11-15') && englishMessage.includes('Corniche') && englishMessage.includes('AED 900'));
+    p.querySelector('.desktop-language').click();
+    const chineseMessage = new URL(p.querySelector('#travel-whatsapp').href).searchParams.get('text');
+    expect('travel Chinese switch updates copy and enquiry', p.documentElement.lang === 'zh-CN' && p.querySelector('#travel-enquire-title').textContent.includes('约一场') && chineseMessage.includes('石鑫媛'));
+    travel.remove();
   } catch (error) {
     checks.push({name: String(error), pass: false});
   }

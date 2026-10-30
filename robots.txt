@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shi-xinyuan2004.github.io/sitemap.xml
